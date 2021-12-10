@@ -6,20 +6,21 @@
 //  Copyright (c) 2018 woxtu. All rights reserved.
 //
 
-#if os(iOS) || os(tvOS)
-    @testable import RouteKit
-    import UIKit
-    import XCTest
+@testable import RouteKit
+import UIKit
+import XCTest
 
-    class NavigatorTests: XCTestCase {
-        func test() {
-            let transform = { (vc: UIViewController) -> UIViewController in vc }
-            let completion = { () -> Void in }
+class NavigatorTests: XCTestCase {
 
-            Navigator.present(url: URL(string: "/")!, animated: true)
-            Navigator.present(url: URL(string: "/")!, animated: true, transform: transform)
-            Navigator.present(url: URL(string: "/")!, animated: true, completion: completion)
-            Navigator.present(url: URL(string: "/")!, animated: true, transform: transform, completion: completion)
-        }
-    }
-#endif
+	let navigator = Navigator(rootViewController: UIViewController())
+
+	func test() {
+		let transform = { (vc: UIViewController) -> UIViewController in vc }
+		let completion = { () -> Void in }
+
+		navigator.present(url: URL(string: "/")!, animated: true)
+		navigator.present(url: URL(string: "/")!, animated: true, transform: transform)
+		navigator.present(url: URL(string: "/")!, animated: true, completion: completion)
+		navigator.present(url: URL(string: "/")!, animated: true, transform: transform, completion: completion)
+	}
+}
