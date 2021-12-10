@@ -25,5 +25,5 @@ let package = Package(
             name: "RouteKitTests",
             dependencies: ["RouteKit"]
         ),
-    ],
+	]
 )
