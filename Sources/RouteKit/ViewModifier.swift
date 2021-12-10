@@ -30,13 +30,13 @@ struct RouterViewModifier: ViewModifier {
 	}
 }
 
-extension View {
+public extension View {
 	func routeOnTap(url: URL, presentation: Presentation, animated: Bool) -> some View {
 		self.modifier(RouterViewModifier(url: url, presentation: presentation, animated: animated))
 	}
 }
 
-enum Presentation {
+public enum Presentation {
 	case present
 	case push
 }
