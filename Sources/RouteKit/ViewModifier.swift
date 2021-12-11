@@ -41,11 +41,11 @@ public enum Presentation {
 	case push
 }
 
-private struct NavigatorKey: EnvironmentKey {
-	static let defaultValue = Navigator(rootViewController: UIViewController())
+public struct NavigatorKey: EnvironmentKey {
+	public static let defaultValue = Navigator(rootViewController: UIViewController())
 }
 
-extension EnvironmentValues {
+public extension EnvironmentValues {
   var navigator: Navigator {
 	get { self[NavigatorKey.self] }
 	set { self[NavigatorKey.self] = newValue }
